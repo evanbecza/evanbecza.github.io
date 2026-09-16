@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evan Becza | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f7fa;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1e3a5f, #2563eb);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            font-weight: normal;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            background-color: white;
+            color: #1e3a5f;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* General Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1e3a5f;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+            color: #6b7280;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            background-color: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 22px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            border-color: #2563eb;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card h3 {
+            color: #1e3a5f;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #6b7280;
+            margin-bottom: 22px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .project-link:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #1e3a5f;
+            color: white;
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        #contact p {
+            margin-bottom: 20px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            color: #1e3a5f;
+            background-color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .contact-link:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Design */
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 18px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                Evan Becza
+            </div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Evan Becza</h1>
+
+            <h2>
+                Accounting Student | Rutgers Business School
+            </h2>
+
+            <p>
+                Rutgers Business School Accounting student and aspiring CPA
+                with experience in accounting operations, leadership, and
+                analytical problem solving.
+            </p>
+
+            <a href="#projects" class="hero-button">
+                View My Projects
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Skills
+            </h2>
+
+            <p class="section-description">
+                Professional and technical skills developed through my
+                coursework, internships, employment, and extracurricular experiences.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill">
+                    Microsoft Excel
+                </div>
+
+                <div class="skill">
+                    Financial Accounting
+                </div>
+
+                <div class="skill">
+                    Problem Solving
+                </div>
+
+                <div class="skill">
+                    Leadership
+                </div>
+
+                <div class="skill">
+                    Communication
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Projects
+            </h2>
+
+            <p class="section-description">
+                Selected academic and professional work demonstrating my
+                research, writing, communication, and professional development.
+            </p>
+
+            <div class="projects-grid">
+
+
+                <!-- Project 1 -->
+                <div class="project-card">
+
+                    <h3>
+                        Status Signaling Research Paper
+                    </h3>
+
+                    <p>
+                        A research paper examining how status signaling has
+                        shifted from conspicuous displays of wealth toward
+                        quiet luxury, social belonging, luxury collecting,
+                        and dupe culture.
+                    </p>
+
+                    <a
+                        href="./research-paper.pdf"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Research Paper
+                    </a>
+
+                </div>
+
+
+                <!-- Project 2 -->
+                <div class="project-card">
+
+                    <h3>
+                        Creative Writing Portfolio
+                    </h3>
+
+                    <p>
+                        A collection of original writing featuring the fiction
+                        story "The Tryout," a creative nonfiction piece, and
+                        original poetry developed through multiple writing styles.
+                    </p>
+
+                    <a
+                        href="./writing-portfolio.pdf"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Writing Portfolio
+                    </a>
+
+                </div>
+
+
+                <!-- Project 3 -->
+                <div class="project-card">
+
+                    <h3>
+                        Professional Resume
+                    </h3>
+
+                    <p>
+                        An overview of my education, accounting internship
+                        experience, professional development, certifications,
+                        volunteer experience, and skills.
+                    </p>
+
+                    <a
+                        href="./resume.pdf"
+                        target="_blank"
+                        class="project-link"
+                    >
+                        View Resume
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact
+            </h2>
+
+            <p>
+                Interested in learning more about my experience and work?
+            </p>
+
+            <a
+                href="https://www.linkedin.com/in/evanbecza"
+                target="_blank"
+                class="contact-link"
+            >
+                Connect with me on LinkedIn
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Evan Becza. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
